@@ -5,6 +5,13 @@ var router = express.Router();
 
 var URL = 'mongodb://localhost:27017';
 
+function Check_Login(req){
+  if(req.cookie.user_data){
+    return true;
+  }
+  return false;
+}
+
 /* GET users listing. */
 router.get('/', function (req, res, next) {
   res.send('respond with a resource');
@@ -34,8 +41,11 @@ router.route('/LogIn').post(function (req, res) {
         res.send('no data');
       }
       else {
-        res.cookie('user_name', user_name, {'maxAge' : 60 * 60 * 24 * 30});
-        res.cookie('password', password, {'maxAge' : 60 * 60 * 24 * 30});
+        var user_data = {
+          user_name : user_name,
+          password : password
+        }
+        res.cookie('user_data', user_data, {'maxAge' : 60 * 60 * 24 * 30});
         res.send(result);
       }
     });
@@ -64,17 +74,21 @@ router.route('/LogUp').post(function (req, res) {
       }
 
       else {
+        var user_data = {
+          user_name : user_name,
+          password : password
+        }
         dbo.collection('user').insertOne({ user_name: user_name, password: password, email: email });
-        res.cookie('user_name', user_name, {'maxAge' : 60 * 60 * 24 * 30});
-        res.cookie('password', password, {'maxAge' : 60 * 60 * 24 * 30});
+        res.cookie('user_data', user_data, {'maxAge' : 60 * 60 * 24 * 30});
         res.send('SUCCESS');
       }
     })
   });
 });
 
-router.route('/LogOut').post(function (req, res) {
-  res.clearCookie();
-  res.end('shibal');
+router.get('/LogOut', function(req, res){
+  console.log(req.cookies.user_data);
+  res.clearCookie('user_data');
 });
+
 module.exports = router;
