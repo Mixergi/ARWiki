@@ -5,8 +5,8 @@ head
   meta(name='viewport', content='width=device-width, initial-scale=1')
   link(href='https://fonts.googleapis.com/css?family=Roboto:400,700', rel='stylesheet')
   title ARWK
-  link(rel='stylesheet', href='style.css')
-  link(rel='icon', href='Project_Logo(2)_icon.png')
+  link(rel='stylesheet', href='/stylesheets/style.css')
+  link(rel='icon', href='/image/Project_Logo(2)_icon.png')
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
@@ -14,7 +14,7 @@ head
   form(action='wk.html', method='post')
     center
       a(href='wk.html')
-        img(src='Project_Logo(2).png', width='40%')
+        img(src='/image/Project_Logo(2).png', width='40%')
     hr
     .form-group
       input.form-control(type='text', name='username', placeholder='아이디', required='required')
@@ -38,7 +38,7 @@ head
     .modal-content
       .modal-header
         .avatar
-          img(src='Project_Logo(2)_icon.png', alt='Avatar')
+          img(src='/image/Project_Logo(2)_icon.png', alt='Avatar')
         h4.modal-title WELCOME
         button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
       .modal-body
