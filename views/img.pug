@@ -4,6 +4,7 @@ head
   script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
   link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css', integrity='sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS', crossorigin='anonymous')
   link(rel='stylesheet', href='style.css')
+  link(rel='icon', href='Project_Logo(2)_icon.png')
   title ARWK
   script.
     $(document).on('click', '#btnSave', function(e){
@@ -24,9 +25,8 @@ head
     padding-top:10px;
     padding-bottom:0px;
     }
-    .a{
-    margin-left:35%;
-    margin-right: 10px;
+    .btn{
+    margin-left:43%;
     }
 div
   center
@@ -36,12 +36,11 @@ article.signup-form
   .container(role='main')
     h2 Add Content
     form#form(name='form', role='form', method='post', action='${pageContext.request.contextPath}/board/saveBoard')
-      .mb-3
-        label(for='title') &#xC81C;&#xBAA9;
-        input#title.form-control(type='text', name='title', placeholder='제목을 입력해 주세요')
-      .mb-3
-        label(for='content') &#xB0B4;&#xC6A9;
-        textarea#content.form-control(rows='9', name='content', placeholder='내용을 입력해 주세요')
+      .file-upload.file-upload-inline
+        .file-upload-wrap
+          .file-upload-btn
+            i.fa.fa-folder-open
+            |  &#xC0AC;&#xC9C4;&#xCCA8;&#xBD80;
+          input(type='file', multiple='')
     div
-      button#btnSave.btn.btn-sm.btn-primary.a(type='button') &#xC800;&#xC7A5;
-      button.btn.btn-sm.btn-primary(type='button', onclick="location.href = 'img.html'") &#xC774;&#xBBF8;&#xC9C0;&#xCD94;&#xAC00;
+      button#btnSave.btn.btn-sm.btn-primary(type='button') &#xC774;&#xBBF8;&#xC9C0;&#xCD94;&#xAC00;
