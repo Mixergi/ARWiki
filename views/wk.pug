@@ -1,51 +1,37 @@
 doctype html
 head
-  meta(charset='utf-8')
-  meta(http-equiv='X-UA-Compatible', content='IE=edge')
-  meta(name='viewport', content='width=device-width, initial-scale=1')
-  link(href='https://fonts.googleapis.com/css?family=Roboto:400,700', rel='stylesheet')
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible', content='ie=edge')
+  link(rel='stylesheet', href='wk_style.css')
+  link(rel='icon', href='Project_Logo(2)_icon.png')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+  script(src='wk_js.js')
   title ARWK
-  link(rel='stylesheet', href='style.css')
-  link(rel='icon', href='/image/Project_Logo(2)_icon.png')
-  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
-  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
-  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
-.signup-form
-  form(action='wk.html', method='post')
+div(clas='box')
+  button.a.ebox(onclick="location.href = 'index.html'") add content
+  button.ebox(onclick="location.href = 'Signup.html'") Logout
+  .search
+    input.search__input(placeholder='Search')
+    button.fa.fa-search.search__button &#xAC80;&#xC0C9;
+  div
     center
       a(href='wk.html')
-        img(src='Project_Logo(2).png', width='40%')
-    hr
-    .form-group
-      input.form-control(type='text', name='username', placeholder='아이디', required='required')
-    .form-group
-      input.form-control(type='email', name='email', placeholder='이메일 주소', required='required')
-    .form-group
-      input.form-control(type='password', name='password', placeholder='비밀번호', required='required')
-    .form-group
-      input.form-control(type='password', name='confirm_password', placeholder='비밀번호 확인', required='required')
-    .form-group
-      button.btn.btn-primary.btn-block.btn-lg(type='submit') &#xD68C;&#xC6D0;&#xAC00;&#xC785;
-    p.small.text-center
-      | Easy and convenient knowledge-sharing warehouse  
-      br
-      a(href='wk.html') ARWK
-  .text-center
-    | &#xC774;&#xBBF8; &#xD68C;&#xC6D0;&#xC774;&#xC2E0;&#xAC00;&#xC694;? 
-    a(href='#myModal', data-toggle='modal') &#xB85C;&#xADF8;&#xC778; &#xD558;&#xAE30;
-#myModal.modal.fade
-  .modal-dialog.modal-login
-    .modal-content
-      .modal-header
-        .avatar
-          img(src='/image/Project_Logo(2)_icon.png', alt='Avatar')
-        h4.modal-title WELCOME
-        button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
-      .modal-body
-        form(action='wk.html', method='post')
-          .form-group
-            input.form-control(type='text', name='username', placeholder='아이디', required='required')
-          .form-group
-            input.form-control(type='password', name='password', placeholder='비밀번호', required='required')
-          .form-group
-            button.btn.btn-primary.btn-lg.btn-block.login-btn(type='submit') &#xB85C;&#xADF8;&#xC778;
+        img(src='Project_Logo(2).png', width='10%')
+  .tabs
+    .tabs-header
+      .border
+      ul
+        li.active
+          a(href='#read', tab-id='1', ripple='ripple', ripple-color='#FFF') &#xC77D;&#xAE30;
+        li
+          a(href='#editing', tab-id='2', ripple='ripple', ripple-color='#FFF') &#xD3B8;&#xC9D1;
+        li
+          a(href='#history', tab-id='3', ripple='ripple', ripple-color='#FFF') &#xC5ED;&#xC0AC;
+      nav.tabs-nav
+        i#prev.material-icons(ripple='ripple', ripple-color='#FFF') &#xE314;
+        i#next.material-icons(ripple='ripple', ripple-color='#FFF') &#xE315;
+    .tabs-content
+      .tab.active(tab-id='1') &#xB0B4;&#xC6A9;
+      .tab(tab-id='2') &#xB0B4;&#xC6A9;
+      .tab(tab-id='3') &#xB0B4;&#xC6A9;
