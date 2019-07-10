@@ -41,7 +41,7 @@ router.get('/:title', function (req, res) {
     });
 });
 
-router.route('/:title/Update').post(function(req, res){
+router.route('/:title/edit').post(function(req, res){
 
 });
 
