@@ -3,11 +3,22 @@ head
   meta(charset='UTF-8')
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
   meta(http-equiv='X-UA-Compatible', content='ie=edge')
-  link(rel='stylesheet', href='/stylesheets/wk_style.css')
-  link(rel='icon', href='/images/Project_Logo_icon.png')
+  link(rel='stylesheet', href='wk_style.css')
+  link(rel='icon', href='Project_Logo(2)_icon.png')
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
-  script(src='/javascripts/wk_js.js')
+  script(src='wk_js.js')
   title ARWK
+  style.
+    .e{
+    padding-left: 15%;
+    margin-bottom:0px;
+    }
+    .f{
+    float:none;
+    font-size:20px;
+    width:50%;
+    height:30px;
+    }
 div(clas='box')
   button.a.ebox(onclick="location.href = 'index.html'") add content
   button.ebox(onclick="location.href = 'Signup.html'") Logout
@@ -16,8 +27,10 @@ div(clas='box')
     button.fa.fa-search.search__button &#xAC80;&#xC0C9;
   div
     center
-      a(href='/')
-        img(src='/images/Project_Logo.png', width='10%')
+      a(href='wk.html')
+        img(src='Project_Logo(2).png', width='10%')
+  .e
+    input.search__input.f(type='text')
   .tabs
     .tabs-header
       .border
@@ -32,6 +45,6 @@ div(clas='box')
         i#prev.material-icons(ripple='ripple', ripple-color='#FFF') &#xE314;
         i#next.material-icons(ripple='ripple', ripple-color='#FFF') &#xE315;
     .tabs-content
-      .tab.active(tab-id='1')=content
-      .tab(tab-id='2')=edit_content
-      .tab(tab-id='3')=history
+      .tab.active(tab-id='1') &#xB0B4;&#xC6A9;
+      .tab(tab-id='2') &#xB0B4;&#xC6A9;
+      .tab(tab-id='3') &#xB0B4;&#xC6A9;
