@@ -10,7 +10,7 @@ router.route('/SignIn').post(function (req, res) {
   var password = req.body.password;
 
   if (!(user_name && password)) {
-    res.send('ERROR');
+    res.render('SignIn', { err: true });
   }
 
   var user_data = { user_name: user_name, password: password };
@@ -22,7 +22,7 @@ router.route('/SignIn').post(function (req, res) {
     dbo.collection('user').findOne(user_data, function (err, result) {
 
       if (result === null) {
-        res.send('no data');
+        res.render('SignIn', { err: true });
       }
       else {
         var user_data = {
@@ -30,7 +30,7 @@ router.route('/SignIn').post(function (req, res) {
           password: password
         }
         res.cookie('user_data', user_data, { 'maxAge': 60 * 60 * 24 * 30 });
-        res.send(result);
+        res.redirect('/');
       }
     });
   });
@@ -42,7 +42,7 @@ router.route('/SignUp').post(function (req, res) {
   var email = req.body.email;
 
   if (!(user_name && password && email)) {
-    res.send('ERROR');
+    res.render('SignUp', { err: true });
   }
 
   client.connect(URL, function (err, db) {
@@ -51,33 +51,30 @@ router.route('/SignUp').post(function (req, res) {
 
     dbo.collection('user').findOne({ $or: [{ user_name: user_name }, { email: email }] }, function (err, result) {
 
-      if (result !== null) {
-        res.send('Alrealy Exist Id or Email');
+      if (result != null) {
+        res.render('SignUp', { err: true });
       }
 
       else {
         var user_data = {
           user_name: user_name,
           password: password,
-          email: email,
-          cookie_list: []
+          email: email
         };
 
-
-        dbo.collection('user').insertOne(user_data);
+        dbo.collection('user').insertOne(user_data)
         res.cookie('user_data', { user_name: user_name, password: password }, { maxAge: 1000 * 60 * 60 * 24 * 30 });
-        res.send('Success');
+        res.redirect('/');
       }
     })
   });
 });
 
 router.get('/LogOut', function (req, res) {
-  console.log(req.cookies.user_data);
-  res.clearCookie('user_data');
-});
-
-router.get('/Cookie_Check', function (req, res) {
+  if (req.cookies.user_data) {
+    res.clearCookie('user_data');
+  }
+  res.redirect('/');
 });
 
 module.exports = router;

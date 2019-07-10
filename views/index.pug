@@ -35,7 +35,7 @@ div
 article.signup-form
   .container(role='main')
     h2 Add Content
-    form#form(name='form', role='form', method='post', action='${pageContext.request.contextPath}/board/saveBoard')
+    form#form(name='form', role='form', method='post', action='/upload/docs')
       .mb-3
         label(for='title') &#xC81C;&#xBAA9;
         input#title.form-control(type='text', name='title', placeholder='제목을 입력해 주세요')
@@ -43,5 +43,5 @@ article.signup-form
         label(for='content') &#xB0B4;&#xC6A9;
         textarea#content.form-control(rows='9', name='content', placeholder='내용을 입력해 주세요')=content
     div
-      button#btnSave.btn.btn-sm.btn-primary.a(type='button') &#xC800;&#xC7A5;
-      button.btn.btn-sm.btn-primary(type='button', onclick="location.href = 'img.html'") &#xC774;&#xBBF8;&#xC9C0;&#xCD94;&#xAC00;
+      button#btnSave.btn.btn-sm.btn-primary.a(type='button') 저장
+      button.btn.btn-sm.btn-primary(type='button', onclick="location.href = 'img.html'") 이미지 추가

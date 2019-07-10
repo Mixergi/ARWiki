@@ -25,8 +25,9 @@ head
       button.fa.fa-search.search__button &#xAC80;&#xC0C9;
     .text-center Easy and convenient knowledge-sharing warehouse
     hr
-    if SignIn
-      button.ebox.a(type='button', onclick="location='/SignIn'")=name
+    if name
+      button.ebox.a(type='button')=name
+      button.ebox(type='button', onclick="location = '/users/LogOut'") LogOut
     else
-      button.ebox.a(type='button', onclick="location='/SignIn'") &#xB85C;&#xADF8;&#xC778;
-      button.ebox(type='button', onclick="location = '/SignUp'") &#xD68C;&#xC6D0;&#xAC00;&#xC785;
+      button.ebox.a(type='button', onclick="location='/SignIn'") 로그인
+      button.ebox(type='button', onclick="location = '/SignUp'") 회원가입

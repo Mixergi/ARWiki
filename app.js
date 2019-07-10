@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var docsRouter = require('./routes/docs');
 var uploadRouter = require('./routes/upload');
 var search = require('./routes/search');
+var newdocs = require('./routes/newdocs');
 var app = express();
 
 // view engine setup
@@ -26,6 +27,7 @@ app.use('/users', usersRouter);
 app.use('/docs', docsRouter);
 app.use('/upload', uploadRouter);
 app.use('/search', search);
+app.use('/newdocs', newdocs);
 
 
 // catch 404 and forward to error handler
@@ -44,6 +46,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(8080);
+app.listen(8080, '0.0.0.0');
 
 module.exports = app;
