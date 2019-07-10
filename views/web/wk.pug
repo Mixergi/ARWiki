@@ -1,0 +1,37 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible', content='ie=edge')
+  link(rel='stylesheet', href='wk_style.css')
+  link(rel='icon', href='Project_Logo(2)_icon.png')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+  script(src='wk_js.js')
+  title ARWK
+div(clas='box')
+  button.a.ebox(onclick="location.href = 'index.html'") add content
+  button.ebox(onclick="location.href = 'Signup.html'") Logout
+  .search
+    input.search__input(placeholder='Search')
+    button.fa.fa-search.search__button &#xAC80;&#xC0C9;
+  div
+    center
+      a(href='wk.html')
+        img(src='Project_Logo(2).png', width='10%')
+  .tabs
+    .tabs-header
+      .border
+      ul
+        li.active
+          a(href='#read', tab-id='1', ripple='ripple', ripple-color='#FFF') &#xC77D;&#xAE30;
+        li
+          a(href='#editing', tab-id='2', ripple='ripple', ripple-color='#FFF') &#xD3B8;&#xC9D1;
+        li
+          a(href='#history', tab-id='3', ripple='ripple', ripple-color='#FFF') &#xC5ED;&#xC0AC;
+      nav.tabs-nav
+        i#prev.material-icons(ripple='ripple', ripple-color='#FFF') &#xE314;
+        i#next.material-icons(ripple='ripple', ripple-color='#FFF') &#xE315;
+    .tabs-content
+      .tab.active(tab-id='1') &#xB0B4;&#xC6A9;
+      .tab(tab-id='2') &#xB0B4;&#xC6A9;
+      .tab(tab-id='3') &#xB0B4;&#xC6A9;
