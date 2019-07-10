@@ -30,16 +30,17 @@ router.get('/:title', function (req, res) {
         var title = req.params['title'];
         var dbo = db.db('docs');
 
-        dbo.collection(title).aggregate({ $group: { max: { $max: "$version" } } }).toArray(function (err, result) {
-            if (result != null) {
-                res.send(result['content']);
+        dbo.collection(title).findOne({}, function (err, data) {
+            if (data == null) {
+                res.send('ERROR');
             }
-            else{
-
+            else {
+                res.render('wk');
             }
         });
     });
 });
+
 
 router.route('/:title/edit').post(function(req, res){
 

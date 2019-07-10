@@ -7,16 +7,16 @@ html(lang='en')
     link(href='https://fonts.googleapis.com/css?family=Roboto:400,700', rel='stylesheet')
     title ARWK
     link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='icon', href='/images/Project_Logo(2)_icon.png')
+    link(rel='icon', href='/images/Project_Logo_icon.png')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
   body
     .signup-form
-      form(action='/', method='post')
+      form(action='http://localhost:8080/users/SignIn', method='post')
         center
           a(href='/')
-            img(src='/images/Project_Logo(2).png', width='40%')
+            img(src='/images/Project_Logo.png', width='40%')
         hr
         .form-group
           input.form-control(type='text', name='username', placeholder='아이디', required='required')

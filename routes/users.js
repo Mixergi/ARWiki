@@ -5,21 +5,7 @@ var cookie = require('./cookie')
 
 var URL = 'mongodb://localhost:27017';
 
-function Check_Login(req) {
-  if (req.cookie.user_data) {
-    return true;
-  }
-  return false;
-}
-
-/* GET users listing. */
-router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
-});
-
-/*Post users listing */
-
-router.route('/LogIn').post(function (req, res) {
+router.route('/SignIn').post(function (req, res) {
   var user_name = req.body.user_name;
   var password = req.body.password;
 
@@ -50,7 +36,7 @@ router.route('/LogIn').post(function (req, res) {
   });
 });
 
-router.route('/LogUp').post(function (req, res) {
+router.route('/SignUp').post(function (req, res) {
   var user_name = req.body.user_name;
   var password = req.body.password;
   var email = req.body.email;
