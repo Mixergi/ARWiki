@@ -1,6 +1,7 @@
 var client = require('mongodb');
 var express = require('express');
 var router = express.Router();
+var markup = require('./markup');
 
 var URL = 'mongodb://localhost:27017';
 
@@ -42,7 +43,7 @@ router.get('/:title', function (req, res) {
             dbo.collection(title).find().toArray(function (err, result) {
 
                 if (result.length != 0) {
-                    res.render('wk', { user_name: user_name, title: title, content: result[result.length - 1].content, history: result });
+                    res.render('wk', { user_name: user_name, title: title, content: markup(result[result.length - 1].content), history: result });
                 }
                 else {
                     res.redirect('/newdocs');

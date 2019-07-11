@@ -54,8 +54,8 @@ div(clas='box')
         i#prev.material-icons(ripple='ripple', ripple-color='#FFF') &#xE314;
         i#next.material-icons(ripple='ripple', ripple-color='#FFF') &#xE315;
     .tabs-content
-      .tab.active(tab-id='1')=content
+      .tab.active(tab-id='1') !{content}
       .tab(tab-id='2')
         each val in history
-          li=val['date'] + ' ' +  val['contributer']
+          li=val['date'] + ' ' + val['contributer']
       a(href=`/docs/${title}/edit`).tab(tab-id='3') 편집으로 이동

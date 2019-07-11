@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "Q": "^1.0.0",
     "cookie-parser": "^1.4.4",
     "crypto": "^1.0.1",
     "debug": "~2.6.9",
@@ -13,7 +14,24 @@
     "http-errors": "^1.6.3",
     "mongodb": "^3.2.7",
     "morgan": "^1.9.1",
+    "mout": "^1.1.0",
     "multer": "^1.4.1",
-    "pug": "^2.0.0-beta11"
-  }
+    "optimist": "^0.6.1",
+    "pug": "^2.0.0-beta11",
+    "qs": "^6.7.0",
+    "user-home": "^2.0.0"
+  },
+  "description": "GSM Network Project",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mixergi/ARWiki.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mixergi/ARWiki/issues"
+  },
+  "homepage": "https://github.com/Mixergi/ARWiki#readme"
 }

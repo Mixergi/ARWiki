@@ -5,56 +5,22 @@ var router = express.Router();
 var path = require('path');
 var client = require('mongodb');
 
+
 var URL = 'mongodb://localhost:27017';
 
 
 var path_list = path.dirname(__filename).split('\\')
 var dir = (__dirname.toString().split(path_list[path_list.length - 1])[0] + 'public\\images\\').split('\\').join('/');
 
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-
-        cb(null, dir);
-    },
-
-    filename: function (req, file, cb) {
-        var testSn = req.body.TEST_SN;
-        var qSn = req.body.Q_SN;
-        var mimeType;
-
-        switch (file.mimetype) {
-            case "image/jpeg":
-                mimeType = "jpg";
-                break;
-            case "image/png":
-                mimeType = "png";
-                break;
-            case "image/gif":
-                mimeType = "gif";
-                break;
-            case "image/bmp":
-                mimeType = "bmp";
-                break;
-            default:
-                mimeType = "jpg";
-                break;
-        }
-
-        cb(null, testSn + "_" + qSn + "." + mimeType);
-    }
-});
-
-var upload = multer({ storage: storage });
+var upload = multer({dest : 'C:\data'});
 
 router.get('/image', function (req, res) {
     res.render('img');
 });
 
-router.post('/image', upload.single('name'), function (req, res) {
-    var testSn = req.body.TES1T_SN;
-    var qSnArr = req.body.Q_SN;
-    var imgFile = req.file;
-    res.render('img', { err: error });
+router.post('/image', upload.single('file'), function (req, res) {
+    console.log(req.body.user_file);
+    res.send(req.file);
 });
 
 router.route('/docs').post(function (req, res) {

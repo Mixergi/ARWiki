@@ -36,15 +36,12 @@ article.signup-form
   .container(role='main')
     h2 Add Content
     form#form(name='form', role='form', method='post', action='/upload/image')
-      .mb-3
-        label(for='이름') 이름
-        input#title.form-control(type='text', name='name', placeholder='파일명을 입력해 주세요', required='required')
       .file-upload.file-upload-inline
         .file-upload-wrap
           .file-upload-btn
             i.fa.fa-folder-open
             |  사진첨부
-          input(type='file', multiple='', required='required')
+          input(type='file', name="user_file",multiple='', required='required')
     div
       button#btnSave.btn.btn-sm.btn-primary(type='button', onclick="document.getElementById('form').submit();") &#xC774;&#xBBF8;&#xC9C0;&#xCD94;&#xAC00;
 if err == "AE"
