@@ -48,7 +48,7 @@ router.route('/docs').post(function (req, res) {
                 }
                 else {
                     dbo.collection(title).find().toArray((err, data) => {
-                        dbo.collection(title).insertOne({ title: title, content: content, contributer: contributer, date: date.toString(), version: data.length - 1 });
+                        dbo.collection(title).insertOne({ title: title, content: content, contributer: contributer, date: date.toString(), version: data.length});
                         res.redirect(`/docs/${title}`);
                     });
                 }

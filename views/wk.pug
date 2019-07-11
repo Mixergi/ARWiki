@@ -57,5 +57,5 @@ div(clas='box')
       .tab.active(tab-id='1') !{content}
       .tab(tab-id='2')
         each val in history
-          li=val['date'] + ' ' + val['contributer']
-      a(href=`/docs/${title}/edit`).tab(tab-id='3') 편집으로 이동
+          li=val['date'] + ' ' + val['contributer'] + ' version =' + val['version']
+      a(href=`/newdocs`).tab(tab-id='3') 편집으로 이동
