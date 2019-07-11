@@ -61,7 +61,7 @@ var Markup = function (data) {
 
     if(MarkupStack != ''){
         if(MarkupStack == ']]'){
-            content += `<img src="/images/${imageLink}" width = "40%"><br>`;
+            content += `<br><img src="/images/${imageLink}" width = "40%"><br>`;
             ImageLink = false;
             imageLink = '';
         }
