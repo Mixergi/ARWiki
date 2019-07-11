@@ -6,7 +6,7 @@ var URL = 'mongodb://localhost:27017';
 
 
 router.route('/:title/edit').post(function (req, res) {
-    
+    res.render('index', {title : req.params.title})
 });
 
 

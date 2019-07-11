@@ -58,34 +58,40 @@ router.post('/image', upload.single('name'), function (req, res) {
 });
 
 router.route('/docs').post(function (req, res) {
+
     var title = req.body.title;
     var content = req.body.content;
     var contributer;
 
-    if (req.cookies.user_data) {
-        contributer = req.cookies.user_data['user_name'];
-    }
-    else {
-        contributer = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    }
+    if (title != "") {
+        if (req.cookies.user_data) {
+            contributer = req.cookies.user_data['user_name'];
+        }
+        else {
+            contributer = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+        }
 
-    client.connect(URL, function (err, db) {
-        var dbo = db.db('docs');
+        client.connect(URL, function (err, db) {
+            var dbo = db.db('docs');
 
-        var date = new Date();
-        dbo.collection(title).findOne({}, (err, rs) => {
-            if (rs == null) {
-                dbo.collection(title).insertOne({ title: title, content: content, contributer: contributer, date: date.toString(), version: 0 });
-                res.redirect(`/docs/${title}`);
-            }
-            else {
-                dbo.collection(title).find().toArray((err, data) => {
-                    dbo.collection(title).insertOne({ title: title, content: content, contributer: contributer, date: date.toString(), version: data.length - 1 });
+            var date = new Date();
+            dbo.collection(title).findOne({}, (err, rs) => {
+                if (rs == null) {
+                    dbo.collection(title).insertOne({ title: title, content: content, contributer: contributer, date: date.toString(), version: 0 });
                     res.redirect(`/docs/${title}`);
-                });
-            }
+                }
+                else {
+                    dbo.collection(title).find().toArray((err, data) => {
+                        dbo.collection(title).insertOne({ title: title, content: content, contributer: contributer, date: date.toString(), version: data.length - 1 });
+                        res.redirect(`/docs/${title}`);
+                    });
+                }
+            });
         });
-    });
+    }
+    else{
+        res.redirect('/newdocs');
+    }
 });
 
 module.exports = router;
